@@ -124,15 +124,19 @@
 		
 		#topicmenu ul {
 			background-color:#3E0C0D;
-			padding:0;
+			padding:1px 10px 0 10px;
 			margin:0px;
+			height:34px;
 		}
 		
 		#topicmenu li {
+			float:left;
 			list-style:none;
-			font-size:0.8em;
-			padding:5px;
+			font-size:1em;
+			padding:0 10px 0 10px;
 			margin-top:10px;
+			border-right:1px solid #990000;
+			background-color:none;
 		}
 			
 		.fixedwidth {
@@ -142,6 +146,15 @@
 		
 		.break {
 			clear:both;
+		}
+		
+		.selected {
+			background-color:#EDEDED;
+			color:#666666;
+			height:27px;
+			position:relative;
+			top:-9px;
+			padding-top:6px !important;
 		}
 		
     </style>    
@@ -195,7 +208,18 @@
 			<div class="fixedwidth">
 				<div id="topicmenu">
 					<ul>
-						<li>Home</li>
+						<li class="selected">Home</li>
+						<li>Business</li>
+						<li>People</li>
+						<li>Culture</li>
+						<li>History</li>
+						<li>Geography</li>
+						<li>Philanthropy</li>
+						<li>Technology</li>
+						<li>Health</li>
+						<li>Statistics</li>
+						<li>Education</li>
+						<li style="border-right:none">Laws</li>
 					</ul>
 				</div>
 			</div>

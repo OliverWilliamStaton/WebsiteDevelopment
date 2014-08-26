@@ -14,6 +14,10 @@
 			margin:0;
 		}
 		
+		p {
+			font-family:arial,helvetica,sans-serif;
+		}
+		
 		#topbar {
 			background-color:#7A0000;
 			width:100%;
@@ -138,6 +142,12 @@
 			border-right:1px solid #990000;
 			background-color:none;
 		}
+		
+		#content {
+			width:100%;
+			color:#535353;
+			font-size:0.75em;
+		}
 			
 		.fixedwidth {
 			width:1050px;
@@ -155,6 +165,131 @@
 			position:relative;
 			top:-9px;
 			padding-top:6px !important;
+		}
+		
+		.date {
+			font-weight:bold;
+		}
+		
+		h1 {
+			color:#1F4F82;
+			font-size:2.5em;
+			font-family:arial,helvetica,sans-serif;
+		}
+		
+		.headlineimage {
+			float:left;
+			width:400px;
+		}
+		
+		.newsitem {
+			float:left;
+			position:relative;
+			top:-15px;
+			left:10px;
+			width:300px;
+			font-size:1.1em;
+		}
+		
+		.newsitem a {
+			color:#1F4F82;
+			text-decoration:none;
+			font-size:0.8em;
+		}
+		
+		.newsitem a:hover {
+			text-decoration:underline;
+		}
+		
+		.video {
+			background-image:url("images/arrow.png");
+			background-repeat:no-repeat;
+			background-position:left center;
+			padding-left:20px;
+		}
+		
+		.links {
+			line-height:1.5em;
+		}
+		
+		#watchlisten {
+			background-color:#EEEEEE;
+			float:right;
+			width:337px;
+			height:256px;
+			position:relative;
+			top:-110px;
+			border-radius:10px;
+		}
+		
+		#watchlisten a {
+			text-decoration:none;
+		}
+		
+		#watchlisten a:hover {
+			text-decoration:underline;
+		}
+		
+		h2 {
+			color:#505050;
+			margin:10px 0 10px 10px;
+			font-size:1.2em;
+			font-family:arial,helvetica,sans-serif;
+		}
+		
+		.boxes {
+			float:right;
+			margin:10px 10px 0 0;
+		}
+		
+		.leftarrow {
+			float:left;
+			border-right:1px solid white;
+		}
+		
+		.wlblock {
+			float:left;
+			width:143px;
+			border-right:1px solid white;
+			background-color:#D1700E;
+			font-size:0.9em;
+		}
+		
+		.wlblock p {
+			margin:3px 10px 4px 10px;
+		}
+		
+		.rightarrow {
+			float:left;
+		}
+		
+		.wlblock a {
+			color:white;
+		}
+		
+		.wllist {
+			float:left;
+			position:relative;
+			top:-10px;
+			left:-30px;
+		}
+		
+		#watchlisten li {
+			list-style:none;
+	 		background-image:url("images/live.png");
+			background-repeat:no-repeat;
+			background-position:left center;
+			position:relative;
+			padding:3px 5px 3px 80px;
+			color:#1F4F82;
+			font-size:1.1em;
+			font-family:arial,helvetica,sans-serif;
+			
+			border-bottom:1px solid #DDDDDD;
+		}
+		
+		#bottomli {
+			border-bottom:none;
 		}
 		
     </style>    
@@ -191,6 +326,7 @@
 					<img src="images/magnify.png"/>
 				</div>
 			</div>
+		</div>
 		
 		<div class="break"></div>
 		
@@ -222,6 +358,75 @@
 						<li style="border-right:none">Laws</li>
 					</ul>
 				</div>
+			</div>
+		</div>
+		
+		<div class="break"></div>
+		
+			<div class="fixedwidth">
+
+				<div id="content">
+					<p><span class="date">25 August 2014</span> last updated at 6:36</p>
+				</div>
+				
+				<h1>FirstBuild brings <i>Makers</i> to Town</h1>
+				
+				<img class="headlineimage" src="images/firstbuild.png"/>
+				
+				<div class="newsitem">
+					<p>The FirstBuild microfactory opened today, and it has 
+					already generated a number of small-batch appliance concepts.</p>
+					
+					<p class="links">
+					<a class="video" href="http://www.cnet.com/news/ges-first-build-facility-opens-its-doors/" target=_blank>
+					GE's FirstBuild facility opens its doors</a>
+					
+					<br/>
+				
+					<a class="video" href="http://www.techrepublic.com/article/ges-firstbuild-can-a-big-company-harness-startup-mojo-on-the-backs-of-upstart-entrepreneurs/" target=_blank>
+					Can a big company harness startup mojo?</a>
+						
+					<br/>
+				
+				    <a class="video" href="https://firstbuild.com/" target=_blank>
+				    Co-create a new world of home appliances</a>
+				    </p>
+				    
+				</div>	
+				
+				<div id="watchlisten">
+					<img src="images/pagesindex.png" class="boxes"/>
+					<h2>Watch/Listen</h2>	
+					
+					<img src="images/leftarrow.png" class="leftarrow"/>
+					
+					<div class="wlblock">
+						<img src="images/pic1.png"/>
+						<p><a href="http://www.wdrb.com/story/11486828/take-a-look-inside-a-hoarders-house" target=_blank>
+						Take a look inside a hoarder's house</a></p>
+					</div>
+					
+					<div class="wlblock">
+						<img src="images/pic2.png">
+						<p><a href="http://www.wdrb.com/story/24702432/sinkhole-damages-six-cars-at-corvette-museum" target=_block>
+						Sinkhole swallows 8 cars Corvettes</a></p>
+					</div>
+					
+					<img src="images/rightarrow.png" class="rightarrow"/>	
+					
+					<div class="break"/>
+														
+					<ul class="wllist">
+						<li><a href="http://tunein.com/radio/WFPL-893-s28840/" target=_blank>
+						WFPL Radio Live</a></li>
+						<li><a href="http://www.lfpl.org/get-card.htm" target=_blank>
+						Get A Library Card</a></li>
+						<li class="bottomli"><a href="http://www.louisvilleky.gov/PlanningDesign/IWantTo/Find+a+Zoning+District.htm" target=_blank>
+						Explore Zoning Laws</a></li>
+					</ul>	
+										
+				</div>
+
 			</div>
 		</div>
 	</div>

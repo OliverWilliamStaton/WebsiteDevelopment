@@ -16,29 +16,40 @@
 
 <body>
 
-	<p>How many fingers am I holding up?</p>
+	<p>How many fingers are you holding up?</p>
 	
 	<input id="answer"/>
 	
-	<button id="myButton">Submit</button>
+	<button id="guess">Guess!</button>
 
 	<script type="text/Javascript">
 	
-		document.getElementById("myButton").onclick = function()
+		document.getElementById("guess").onclick = function()
 		{
-			var x = Math.random() * 5;
-			x = Math.floor(x) + 1;
+			var gotIt = false;
+			var guesses = 0;
 		
-			if(x == document.getElementById("answer").value)
+			while(gotIt == false)
 			{
-				alert("Correct!");
-			}
-			else
-			{
-				alert("Wrong...try again. My number was " + x);
-			}
+				var i = Math.random() * 5;
+				i = Math.floor(i);
+				
+				guesses++;
+						
+				if(i == document.getElementById("answer").value)
+				{
+					alert("I got it! It was a " + i);
+					gotIt = true;
+				}
+			    else
+			    {
+		    		alert("hmm");
+		    	}
+		    }
+		    
+		    alert("That took me " + guesses + " guesses");
 		}
-
+		
 	</script>
 
 </body>

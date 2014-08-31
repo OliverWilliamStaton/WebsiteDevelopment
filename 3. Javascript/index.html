@@ -10,13 +10,29 @@
   
   	<style type="text/css">
   	
+  		#redCircle 
+  		{
+  			background-color:red;
+  			width:100px;
+  			height:100px;
+  			border-radius:50px;
+  			text-align:center;
+  		}
+  	
   	</style>
   
 </head>
 
 <body>
 
-	<button onclick="alert('Hi')">Click Me</button>
+	<button id="redCircle">Click Me!</button>
+	
+	<script type="text/Javascript">
+		document.getElementById("redCircle").onclick = function() 
+		{
+			document.getElementById("redCircle").style.display = "none";
+		}
+	</script>
 
 </body>
 </html>

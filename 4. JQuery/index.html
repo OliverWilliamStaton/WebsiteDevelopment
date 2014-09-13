@@ -90,7 +90,7 @@
   		
   		.codeContainer {
   			float:left;
-  			width:400px;
+  			width:50%;
   			font-family:"Trebuchet MS", Helvetica, sans-serif;
   			position:relative;
   		}
@@ -100,14 +100,14 @@
   			height:100%;
   			padding:10px;
   			border:none;
-  			border-right:1px solid grey;
   			font-family:monotype;
   			font-size:1em;
+  			border:1px solid grey;
   		}
   		
   		.codeLabel {
   			position:absolute;
-  			right:-10px;
+  			right:10px;
   			top:10px;
   			font-size:2em;
   		}
@@ -121,6 +121,10 @@
   			position:relative;
   			left:20px;
   			border:none;
+  		}
+  		
+  		#selectionContainer {
+  			text-align:center;
   		}
 		
   	</style>
@@ -140,8 +144,8 @@
 		<h3 id="title">CodePlayer</h3>
 		
 		<!-- Button Configuration -->
-		<div id="selectionContainer" align="center">
-			<ul>
+		<div id="selectionContainer">
+			<ul id="list">
 				<li id="html" class="leftSelect">HTML</li>
 				<li id="css" class="centerSelect">CSS</li>
 				<li id="js" class="centerSelect">JS</li>
@@ -156,22 +160,22 @@
 	
 	<div id="htmlContainer" class="codeContainer">
 		<div class="codeLabel">HTML</div>
-		<textarea>Example Code</textarea>
+		<textarea id="htmlCode"><div id="test"></div></textarea>
 	</div>
 	
 	<div id="cssContainer" class="codeContainer">
 		<div class="codeLabel">CSS</div>
-		<textarea>Example Code</textarea>
+		<textarea id="cssCode">html {background-color:blue}</textarea>
 	</div>
 	
 	<div id="jsContainer" class="codeContainer">
 		<div class="codeLabel">JS</div>
-		<textarea>Example Code</textarea>
+		<textarea id="jsCode">alert('done');</textarea>
 	</div>
 	
 	<div id="resultContainer" class="codeContainer">
 		<div class="codeLabel">Result</div>
-		<iframe></iframe>
+		<iframe id="resultFrame"></iframe>
 	</div>
 		
 	<script>
@@ -221,6 +225,18 @@
 			}
 		}
 	
+		$("#list").click(function() {
+		
+			// Determine the number of divs currently showing
+			var showingDivs = $(".codeContainer").filter(function() {
+				return ($(this).css("display") != "none");
+			}).length;
+		
+			var width = 100 / showingDivs;
+			
+			$(".codeContainer").width(width + "%");
+		});
+
 		$("#html").click(function() {
 			toggleSelection(htmlSelected);
 			updateColor($("#html"), htmlSelected);
@@ -244,7 +260,16 @@
 			updateColor($("#result"), resultSelected);
 			updateContainerDisplay($("#resultContainer"), resultSelected);
 		});
-					
+		
+		$("#runButton").click(function() {
+		
+			// Run the HTML and CSS code in the Results container
+			$("iframe").contents().find("html").html('<style>' + $("#cssCode").val() + '</style>' + $("#htmlCode").val());
+			
+			// Evaluate the javascript
+			document.getElementById("resultFrame").contentWindow.eval($("#jsCode").val());		
+		});
+						
 	</script>
 
 </body>

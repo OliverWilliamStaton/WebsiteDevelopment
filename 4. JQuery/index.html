@@ -38,32 +38,44 @@
   			padding-top:10px;
   		}
   		
+  		#selectionContainer ul {
+  			margin-top:5px;
+  		}
+  		
+  		#selectionContainer li {
+  			padding-top:10px;
+  			font-size:1.2em;
+  		}
+  		
   		.leftSelect {
   		  	display:inline-block;
   			width:80px;
-  			height:50px;
+  			height:30px;
   			border:1px solid black;
   			border-top-left-radius:10px;
   			border-bottom-left-radius:10px;
   			background-color:#E6E6E6;
+  			margin-left:-10px;
   		}
   		
   		.rightSelect {
   		  	display:inline-block;
   			width:80px;
-  			height:50px;
+  			height:30px;
   			border:1px solid black;
    			border-top-right-radius:10px;
   			border-bottom-right-radius:10px;
   			background-color:#E6E6E6;
+  			margin-left:-10px;
   		}
   		
   		.centerSelect {
   		  	display:inline-block;
   			width:80px;
-  			height:50px;
+  			height:30px;
   			border:1px solid black;
   			background-color:#E6E6E6;
+  			margin-left:-10px;
   		}
   		
   		#runButton {
@@ -99,6 +111,17 @@
   			top:10px;
   			font-size:2em;
   		}
+  		
+  		#cssContainer, #jsContainer {
+  			display:none;
+  		}
+  		
+  		iframe {
+  			height:100%;
+  			position:relative;
+  			left:20px;
+  			border:none;
+  		}
 		
   	</style>
   
@@ -106,17 +129,27 @@
 
 <body id="body">
 
+	<!--
+	Menu bar at the top of the screen. Responsible for providing
+	page selections of HTML, CSS, JS, and Result and the option to
+	RUN the input code.
+	-->
 	<div id="menu">
 		
+		<!-- CodePlayer Text -->
 		<h3 id="title">CodePlayer</h3>
 		
+		<!-- Button Configuration -->
 		<div id="selectionContainer" align="center">
-			<div id="html" class="leftSelect"><p>HTML</p></div>
-			<div id="css" class="centerSelect"><p>CSS</p></div>
-			<div id="js" class="centerSelect"><p>JS</p></div>
-			<div id="result" class="rightSelect"><p>Result</p></div>
+			<ul>
+				<li id="html" class="leftSelect">HTML</li>
+				<li id="css" class="centerSelect">CSS</li>
+				<li id="js" class="centerSelect">JS</li>
+				<li id="result" class="rightSelect">Result</li>
+			</ul>
 		</div>
 		
+		<!-- Run Button -->
 		<button id="runButton">Run</button>
 
 	</div>
@@ -125,72 +158,93 @@
 		<div class="codeLabel">HTML</div>
 		<textarea>Example Code</textarea>
 	</div>
+	
+	<div id="cssContainer" class="codeContainer">
+		<div class="codeLabel">CSS</div>
+		<textarea>Example Code</textarea>
+	</div>
+	
+	<div id="jsContainer" class="codeContainer">
+		<div class="codeLabel">JS</div>
+		<textarea>Example Code</textarea>
+	</div>
+	
+	<div id="resultContainer" class="codeContainer">
+		<div class="codeLabel">Result</div>
+		<iframe></iframe>
+	</div>
 		
 	<script>
 	
-		var htmlSelected = false;
-		var cssSelected = false;
-		var jsSelected = false;
-		var resultSelected = false;
-	
-		$("#html").click(function() {
-			if(htmlSelected)
-			{
-				htmlSelected = false;
-				$(this).css("background-color", "#E6E6E6");
-			}
-			else
-			{
-				htmlSelected = true;				
-				$(this).css("background-color", "darkgrey");
-			}
-		});
-
-		$("#css").click(function() {
-			if(cssSelected)
-			{
-				cssSelected = false;
-				$(this).css("background-color", "#E6E6E6");
-			}
-			else
-			{
-				cssSelected = true;				
-				$(this).css("background-color", "darkgrey");
-			}
-		});
-
-		$("#js").click(function() {
-			if(jsSelected)
-			{
-				jsSelected = false;
-				$(this).css("background-color", "#E6E6E6");
-			}
-			else
-			{
-				jsSelected = true;				
-				$(this).css("background-color", "darkgrey");
-			}
-		});
-
-		$("#result").click(function() {
-			if(resultSelected)
-			{
-				resultSelected = false;
-				$(this).css("background-color", "#E6E6E6");
-			}
-			else
-			{
-				resultSelected = true;				
-				$(this).css("background-color", "darkgrey");
-			}
-		});
-		
 		var windowHeight = $(window).height();
 		var menuHeight = $(menu).height();
 		var codeContainerHeight = windowHeight - menuHeight;
 
 		$(".codeContainer").height(codeContainerHeight + "px");
-							
+				
+		var htmlSelected = { state: true };
+		var cssSelected = { state: false };
+		var jsSelected = { state: false };
+		var resultSelected = { state: true };
+		
+		$("#html").css("background-color", "darkgrey");
+		$("#result").css("background-color", "darkgrey");
+
+		// Helper function to toggle the selected state	
+		function toggleSelection(selection) {
+			selection.state = !selection.state;
+		}
+		
+		// Helper function to update color by currently selected state
+		function updateColor(object, selection)
+		{
+			if(selection.state)
+			{
+				$(object).css("background-color", "darkgrey");
+			}
+			else
+			{
+				$(object).css("background-color", "#E6E6E6");
+			}
+		}
+		
+		// Helper function to hide/show the div
+		function updateContainerDisplay(object, selection)
+		{
+			if(selection.state)
+			{
+				$(object).css("display", "inline");
+			}
+			else
+			{
+				$(object).css("display", "none");
+			}
+		}
+	
+		$("#html").click(function() {
+			toggleSelection(htmlSelected);
+			updateColor($("#html"), htmlSelected);
+			updateContainerDisplay($("#htmlContainer"), htmlSelected);
+		});
+
+		$("#css").click(function() {
+			toggleSelection(cssSelected);
+			updateColor($("#css"), cssSelected);
+			updateContainerDisplay($("#cssContainer"), cssSelected);
+		});
+
+		$("#js").click(function() {
+			toggleSelection(jsSelected);
+			updateColor($("#js"), jsSelected);
+			updateContainerDisplay($("#jsContainer"), jsSelected);
+		});
+
+		$("#result").click(function() {
+			toggleSelection(resultSelected);
+			updateColor($("#result"), resultSelected);
+			updateContainerDisplay($("#resultContainer"), resultSelected);
+		});
+					
 	</script>
 
 </body>

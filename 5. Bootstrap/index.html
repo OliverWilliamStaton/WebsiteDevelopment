@@ -17,6 +17,11 @@
 			border:1px solid grey;
 		}
 		
+		.large {
+			font-size:400%;
+			color:red;
+		}
+		
 	</style>
 
   </head>
@@ -52,25 +57,40 @@
   		
   	</div>
   
-    <h1>Hello, world!</h1>
-    
     <div class="container">
+    
+    	<!-- Adding Glyphs -->
+		<span class="glyphicon glyphicon-chevron-up large"></span>
+    	<span class="glyphicon glyphicon-chevron-down large"></span>
     	
-    	<div class="row">
-
-    		<div class="col-md-6 box">Content</div>
-    		<div class="col-md-6 box">Content</div>
-
+    	<!-- Adding input box with glyph attached -->
+    	<div class="input-group">
+    	
+    		<input class="form-control" type="text"/>
+    		<span class="glyphicon glyphicon-comment input-group-addon"></span>
+    	
     	</div>
     	
-    	<div class="row">
-
-    		<div class="col-md-4 box">Content</div>
-    		<div class="col-md-4 box">Content</div>
-    		<div class="col-md-4 box">Content</div>
-
+    	<!-- Button with text and glyph -->
+    	<button class="btn btn-success">
+    		<span class="glyphicon glyphicon-calendar"></span>
+    		Calendar
+    	</button>
+    	
+    	<!-- Alert (success/danger) that is dismissable -->
+    	<div class="alert alert-danger alert-dismissable">
+    		<button type="button" class="close" data-dismiss="alert">X</button>
+    		You've done it!
     	</div>
-    	    	
+    	
+    	<!-- List with badges -->
+    	<ul class="list-group">
+    		<li class="list-group-item">Item 1 <span class="badge">12</span></li>
+    		<li class="list-group-item">Item 2</li>
+    		<li class="list-group-item">Item 3</li>
+    		<li class="list-group-item">Item 4</li>
+    	</ul>
+    	
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

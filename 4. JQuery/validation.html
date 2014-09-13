@@ -1,0 +1,135 @@
+
+<!doctype html>
+<html>
+<head>
+    <title>Password Validation</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script type="text/Javascript" src="jquery.min.js"></script>
+
+  	<style type="text/css">
+  	
+  		#wrapper {
+  			margin: 0 auto;
+  			width:500px;
+  			font-family:helvetica;
+  			font-size:1.2em;
+  		}
+  		
+  		input {
+  			width:300px;
+  			height:30px;
+  			padding: 5px;
+  			border-radius: 5px;
+  			font-size:1.2em;
+  			border:1px solid grey;
+  			margin-bottom:10px;
+  		}
+  		
+  		label {
+  			width:180px;
+  			padding-top:7px;
+  			float:left;
+  		}
+  		
+  		#submitButton {
+  			width:100px;
+  			height:50px;
+  			margin-left:180px;
+  		}
+  		
+  		#error {
+  			color:red;
+  			margin-left:100px;
+  			padding:10px;
+  		}
+  		
+  	</style>
+  
+</head>
+
+<body>
+		
+	<div id="wrapper">
+	
+	<div id="error"></div>
+	
+	<form id="validationForm">
+	
+		<label for="email">Email</label>
+		<input id="email" name="email"></input>
+		
+		<label for="phone">Telephone</label>
+		<input id="phone" name="phone"></input>
+		
+		<label for="password">Password</label>
+		<input id="password" name="password" type="password"></input>
+		
+		<label for="passwordConfirmation">Confirm Password</label>
+		<input id="passwordConfirmation" name="passwordConfirmation" type="password"></input>
+		
+		<input id="submitButton" type="submit" value="Submit"/>
+	
+	</form>
+		
+	</div>
+		
+	<script type="text/Javascript">
+	
+		$("#validationForm").submit(function(event) {
+			
+			var errorMessage = "";
+			
+			// Prevent the form from being submitted
+			event.preventDefault();
+		
+			// Helper function to validate email addresses
+			function isValidEmailAddress(emailAddress) {
+    			var pattern = new RegExp(/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i);
+    			return pattern.test(emailAddress);
+    		};
+    		
+    		// Helper function to determine if a line break is required in the error message
+    		function lineBreakIfNeeded() {
+    			if(errorMessage != "")
+    			{
+    				errorMessage = errorMessage + "<br/>";
+    			}	
+    		}
+    		
+    		// Check for a valid email address
+    		if(!isValidEmailAddress($("#email").val()))
+    		{
+    			errorMessage = "Please enter a valid email address!";
+    		}
+    		
+    		// Check that the phone number is a numeric value
+    		if(!$.isNumeric($("#phone").val()))
+    		{
+    			lineBreakIfNeeded();
+    			errorMessage = errorMessage + "Please enter a valid phone number!";
+    		}
+    		
+    		// Check that the passwords match
+    		if($("#password").val() != $("#passwordConfirmation").val())
+    		{
+  				lineBreakIfNeeded();
+    			errorMessage = errorMessage + "Passwords do not match!";
+    		}
+    		
+    		// Check if there were any error messages
+    		if(errorMessage == "")
+    		{
+    			alert("Success");
+    		}
+    		    	
+    		// Update the error message
+       		$("#error").html(errorMessage);
+    	});
+				
+	</script>
+
+</body>
+</html>

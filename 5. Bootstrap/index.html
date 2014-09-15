@@ -5,29 +5,84 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>Bootstrap 101 Template</title>
+    <title>Bucket List</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
 	<style>
 
+		P {
+			font-family:"Comic Sans MS", cursive, sans-serif;
+			font-size:1.2em;
+		}
+
 		#home {
 			background-size:100%;
 			background-image:url("images/bucketlist.jpg");
+			height:670px;
+			width:100%;
+			background-size:cover;
 		}
 		
 		#about {
-			background-color:red;
+			height:670px;
+			width:100%;
+			background-size:cover;
+		}
+		
+		h1 {
+			font-family:"Comic Sans MS", cursive, sans-serif;
+		}
+		
+		h2 {
+			font-family:"Comic Sans MS", cursive, sans-serif;
 		}
 		
 		#download {
-			background-color:green;
+			height:670px;
+			width:100%;
+			background-size:cover;			
+			background-color:#A9D0F5;
+		}
+
+		#toprow {
+			margin-top:100px;
 		}
 		
-		.contentDiv {
-			height:600px;
-			width:100%;
+		#toprow h1 {
+			font-size:4em;
+			text-align:center;
+			font-family:"Comic Sans MS", cursive, sans-serif;
+		}
+		
+		#toprow p {
+			text-align:center;
+		}
+		
+		.centerAlign {
+			text-align:center;
+		}
+		
+		.bold {
+			font-weight:bold;
+		}
+		
+		.marginTop {
+			margin-top:30px;
+		}
+		
+		.title {
+			margin-top:80px;
+			font-size:3em;
+		}
+		
+		#signUpButton {
+			margin-top:30px;
+		}
+		
+		#appStoreImage {
+			width:250px;
 		}
 		
 	</style>
@@ -71,31 +126,93 @@
   		</div>
   		
   	</div>
-  	
-	<div class="container">
-	
-		<div id="home" class="contentDiv">
+  		
+	<div id="home" class="container">
     		
-    		<div class="input-group">
-    			<input class="form-control" type="text"/>
-    			<span class="glyphicon glyphicon-comment input-group-addon"></span>
+    	<div class="row">
+    		<div class="col-md-6 col-md-offset-3" id="toprow">
+    		
+    		<h1 class="marginTop">Bucket List</h1>
+    		
+    		<p class="lead">Life is your playground. Do it all.</p>
+    		
+    		<p>Create a bucket list of things you always wanted to do. This app offers the 
+    		support system you need to do it all. Go until it scares you. 
+    		Then you know you've got a good start.</p>
+    		
+    		<p class="bold">Join our mailing list!</p>
+    		
+    		<form class="marginTop">
+    			<div class="input-group">
+    				<span class="input-group-addon">@</span>
+    				<input class="form-control" type="email" placeholder="Your email"/>
+    			</div>
+    			<p class="centerAlign"><input type="submit" class="btn btn-success btn-lg marginTop"/></p>
+    		</form>
+    		
     		</div>
-    	
-	    	<button id="submitButton" class="btn btn-success">
-    			Submit
-    		</button>
+    	</div>
     		
-		</div>
+	</div>
 		
-		<div id="about" class="contentDiv">Content</div>
-		<div id="download" class="contentDiv">Content</div>
-
+	<div id="about" class="container">
+	
+		<div class="row">
+			<h1 class="title centerAlign">Life is your playground. Do it all.</h1>
+			
+			<p class="marginTop centerAlign">It all starts with your imagination.</p>
+			
+			<br/>
+			
+			<div class="row">
+				<div class="col-md-4 col-md-offset-4">
+					<h2><span class="glyphicon glyphicon-globe"></span> Imagine</h2>
+					<p>Create the list of a lifetime.<br/>Share and view other lists for inspiration.</p>
+				</div>
+				
+				<div class="col-md-4 col-md-offset-4">
+					<h2><span class="glyphicon glyphicon-plane"></span> Do</h2>
+					<p>Today is the new tomorrow. Do it all.</p>
+				</div>
+				
+				<div class="col-md-4 col-md-offset-4">
+					<h2><span class="glyphicon glyphicon-cloud-upload"></span> Share</h2>
+					<p>Share pictures of the victories on social media.</p>
+				</div>
+				
+				<div class="col-md-2 col-md-offset-5">
+					<p class="centerAlign">
+					<button id="signUpButton" type="submit" class="btn btn-success" class="marginTop">Sign Up</button>
+					</p>
+				</div>
+			</div>
+			
+		</div>
+	
+	</div>
+	
+	<div id="download" class="container">
+	
+		<div class="row">
+		
+			<h1 class="centerAlign title">Download the App!</h1>
+			
+			<p class="centerAlign marginTop">Start an adventure today.</p>
+			
+			<p class="centerAlign"><img class="marginTop" id="appStoreImage" src="images/app_store_icon.png"/></p>
+		
+		</div>
+	
 	</div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    
+    <script>
+	    
+    </script>
     
   </body>
 </html>

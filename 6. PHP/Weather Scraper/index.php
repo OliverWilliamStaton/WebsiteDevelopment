@@ -53,12 +53,17 @@ bootstrap-theme.min.css">
 			margin-top:20px;
 		}
 		
+		.alert {
+			margin-top:20px;
+			display:none;
+		}
+		
 	</style>
 
 </head>
 
 <body>
-
+		
 	<div class="container">
 	
 		<div class="row">
@@ -72,12 +77,24 @@ bootstrap-theme.min.css">
 				<form>
 					
 					<div class="form-group">
-						<input class="center" style="border-radius: 5px; width:300px" type="text" class="form-control" name="city" id="city" placeholder="Example: New York, London, Paris ..."/>
+						<input id="city" class="center" style="border-radius: 5px; width:300px" type="text" class="form-control" name="city" placeholder="Example: New York, London, Paris ..."/>
 					</div>
 					
-					<button id="findMyWeather" class="btn btn-success btn-lg">Find My Weather</button>
-					
+					<button id="findMyWeather" class="btn btn-success btn-lg">Find My Weather</button>					
+				
 				</form>
+				
+				<div id="success" class="alert alert-success">
+					Success!
+				</div>
+
+				<div id="fail" class="alert alert-danger">
+					Could not find weather data for that city. Please try again.
+				</div>
+
+				<div id="noCity" class="alert alert-danger">
+					Please enter a city!
+				</div>
 			
 			</div>
 		
@@ -88,22 +105,32 @@ bootstrap-theme.min.css">
 	<!-- Latest jQuery -->
 	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 	<!-- Latest compiled and minified JavaScript -->
-	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></
-	script>	
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>	
 	
 	<script>
 	
 		$("#findMyWeather").click(function(event) {
-			
+					
 			event.preventDefault();
 			
-			alert("clicked");
+			$(".alert").hide();
 			
-			$.get("scraper.php?city=London", function( data ) {
+			if($("#city").val() != "") {
+						
+				$.get("scraper.php?city=" + $("#city").val(), function( data ) {
 				
-				alert(data);
-				
-			});
+					if(data == "") {
+						$("#fail").fadein();
+					}	
+					else {
+						$("#success").html(data).fadeIn();
+					}			
+				});
+			
+			}
+			else {
+				$("#noCity").fadeIn();
+			}
 			
 		});
 	

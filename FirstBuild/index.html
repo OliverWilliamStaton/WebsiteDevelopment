@@ -31,12 +31,16 @@
 		}
 		
 		.contentDiv {
-			height:500px;
+			height:600px;
 			margin-bottom:2%;
 		}
 		
 		.sectionTitle {
 			text-align:center;
+		}
+		
+		.featureTitle {
+			text-align:left;
 		}
 		
 		#storyDescription {
@@ -56,18 +60,12 @@
 			text-align:center;
 		}
 		
-		#applicationsDescription {
-			text-align:center;
-			margin-left:10%;
-			margin-right:10%;
-		}
-		
 		#applications p {
-			text-align:center;
+			text-align:left;
 		}
 				
 		#features p {
-			text-align:center;
+			text-align:left;
 		}
 		
 		#specsDescription {
@@ -76,24 +74,57 @@
 			text-align:left;
 		}
 		
+		#specList {
+			line-height:50px;
+		}
+		
+		.centerAlign {
+			text-align:center;
+		}
+		
 	</style>
 
 </head>
 
 <body>
 
-	<div id="header">
+	<div id="header" class="contentDiv">
+			
 		<div>
-			<img src="images/wood.jpg" style="width:50%;height:300px;float:left">
-		 	<img src="images/wood.jpg" style="width:50%;height:300px;">
+			<img src="images/wood.jpg" style="width:50%;height:300px;float:right">
 		</div>
+			
+		<div class="row">
+
+			<div class="col-md-3 col-md-offset-2">
+				<br/>
+				<p
+					<b>The only fridge as smart as you.</b>
+				</p>
+				<br/>
+				<p>
+					Ok, well almost.<br/> A refrigerator with USB power, connectivity and 
+					seamless SDK integration. Only you can make a refrigerator as smart 
+					as you are.
+				</p>
+				<br/>
+				<button>BUY NOW ></button>
+				<br/><br/>
+				<p class="glyphicon glyphicon-download" style="font-size:80%">
+					DOWNLOAD THE CHILLHUB SDK ON GITHUB
+				</p>
+	
+			</div>
+		
+		</div>
+		
 	</div>
 
   	<!-- <div class="navbar navbar-default navbar-fixed-top"> -->
   	<div class="navbar navbar-default">
   		<div class="container">
   			<div class="navbar-header">
-  				<a href="" class="navbar-brand">Links to each section below: </a>
+  				<a href="" class="navbar-brand"></a>
   				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
   					<span class="sr-only">Toggle navigation</span>
   					<span class="icon-bar"></span>
@@ -101,12 +132,12 @@
   					<span class="icon-bar"></span>
   				</button>
   			</div>
-  			<div class="collapse navbar-collapse">
+  			<div class="collapse navbar-collapse centerAlign">
   				<ul class="nav navbar-nav">
-  					<li class="active"><a href="#story">Story</a></li>
-  					<li><a href="#applications">Applications</a></li>
-  					<li><a href="#features">Features</a></li>
-  					<li><a href="#specs">Specs</a></li>
+  					<li class="active"><a href="#story">> What is ChillHub?</a></li>
+  					<li><a href="#applications">> What does it do?</a></li>
+  					<li><a href="#features">> Features</a></li>
+  					<li><a href="#specs">> Detailed specs</a></li>
   				</ul>
   			</div>
   		</div>
@@ -117,54 +148,93 @@
 		<div id="story" class="contentDiv">
 		
 			<div class="row">
-				<h1 class="sectionTitle">CHILLHUB STORY</h1>
+				<h1 class="sectionTitle">WHAT IS CHILLHUB?</h1>
 			
-				<p id="storyDescription">
-					Firstbuild community many ideas<br/>
-					Why not a USB hub to support multiple apps<br/>
-					Green Bean<br/>
-					Brian Wagner<br/>
-				</p>
+				<div class="col-md-6 col-md-offset-3">
+					<p>
+						When the <b>FirstBuild</b> community started in May 2014, community 
+						members were submitting ideas for new applications for refrigerators. 
+						The missing links were power and internet connectivity. <b>Brian Wagner</b> 
+						designed the first USB connected hub that provided blah blah blah.
+						Text FPO!
+					</p>
+				</div>
 						
 				<br/>
 			
 				<div class="row">
-					<div class="col-md-6">
+					<div class="col-md-3 col-md-offset-3">
 						<iframe id="storyVideo" src="//www.youtube.com/embed/OWsyrnOBsJs" frameborder="0" allowfullscreen></iframe>	
-					</div>
-					<div class="col-md-3">
-						<p>Green Bean Image</p>
 					</div>
 					<div class="col-md-3">
 						<p>Brian Wagner Image</p>
 					</div>
 				</div>
+				
+				<br/><br/>
+				
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3">
+						<p class="centerAlign">
+							CHECK OUT THE CHILLHUB COMMUNITY >
+						</p>
+					</div>
+				</div>
+				
 			</div>
 		</div>
 		
 		<div id="applications" class="contentDiv">
 			<div class="row">
-				<h1 class="sectionTitle">LIMITLESS POSIBILITIES</h1>
+				<h1 class="sectionTitle">WHAT DOES IT DO?</h1>
 			
-				<p id="applicationsDescription">
-					ChillHub is a refrigerator with two seamlessly integrated USB hubs. 
-					This first of its kind platform enables development of new hardware 
-					products that benefit from operating inside a cooled space. From niche 
-					to mass-market, ChillHub will allow the developer community to create 
-					new uses for refrigerators.
-				</p>
+				<div class="row">
+
+					<div class="col-md-6 col-md-offset-3">
+
+			    		<p>
+							ChillHub is a refrigerator with two seamlessly integrated USB hubs. 
+							This first of its kind platform enables development of new hardware 
+							products that benefit from operating inside a cooled space. From niche 
+							to mass-market, ChillHub will allow the <b>developer community</b> to create 
+							new uses for refrigerators.
+						</p>
 				
-				<br/><br/><br/>
-						
-			    <p style="font-size:200%">
-			    	MIKLY WAY IMAGE, BEER MINDER IMAGE, QUICK CHILL IMAGE
-			    </p>
+					</div>
+				
+				</div>
+				
+			<div class="row">				
+				<h2 class="sectionTitle">SEE IT IN ACTION</h2>				
+				
+				<br/>
+					
+				<div class="col-md-2 col-md-offset-3">
+				    <p style="font-size:120%;margin-left:10%;margin-right:10%;">
+				    	MIKLY WEIGH
+				    </p>
+			    </div>
+			    
+			    <div class="col-md-2">
+				    <p style="font-size:120%;margin-left:10%;margin-right:10%;">
+			    		BEER MINDER
+			    	</p>
+			    </div>
+			    
+			    <div class="col-md-2">
+				    <p style="font-size:120%;margin-left:10%;margin-right:10%;">
+				    	QUICK CHILL
+				    </p>
+			    </div>
 			    
 			    <br/><br/><br/>
 			    
-			    <p>
-			    	Check out the ChillHub Community
-			    </p>
+			    <div class="col-md-6 col-md-offset-3">
+				    <p>
+				    	Check out the ChillHub Community
+				    </p>
+			    </div>
+			</div>
 			</div>
 	 	</div>
 		
@@ -172,28 +242,61 @@
 			<div class="row">
 	 			<h1 class="sectionTitle">FEATURES</h1>
 			
-			    <p style="font-size:200%">
-			    	Circle Icons: Integrated, Powerful, Open, Mobile
-			    </p>
+				<div class="row">
+
+					<div class="col-md-6 col-md-offset-3">
+						<h3 class="featureTitle">INTEGRATED</h3>
+			    		<p>
+				    		Provides seamless integration with the refrigerator. Allows access to 
+				    		sensor data and control of refrigerator components.
+				    	</p>
+				    </div>
+			    
+					<div class="col-md-6 col-md-offset-3">
+				    	<h3 class="featureTitle">POWERFUL</h3>
+					    <p>
+					    	Build-in USB power and WiFi connectivity provide common elements 
+					    	required for nearly any application.
+				    	</p>
+				    </div>
+			    
+					<div class="col-md-6 col-md-offset-3">
+				    	<h3 class="featureTitle">OPEN</h3>
+					    <p>
+					    	The development platform is open, allowing FirstBuild community 
+					    	members to share and improve upon applications.
+				    	</p>
+				    </div>
+			    
+					<div class="col-md-6 col-md-offset-3">
+					    <h3 class="featureTitle">MOBILE</h3>
+					    <p>
+				    		The open-source, iOS-compatible app connects you to ChillHub anywhere.
+				    	</p>
+			    	</div>
+			    
+				</div>
+			    		    
 			</div>
+			
 		</div>
 		
 		<div id="specs" class="contentDiv">
 			<div class="row">
-				<h1 class="sectionTitle">SPECS</h1>
+				<h1 class="sectionTitle">DETAILED SPECS</h1>
+				
+				<br/>
 				
 				<div class="row">
-					<div class="col-md-4 col-md-offset-4"">
-						<p id="specsDescription">
-			    			Specs:<br/>
-			    			- 8 USB ports in 2 different locations in the fridge<br/>
-			    			- USB power: 5V, 4A, 20W (wire dependent)<br/>
-			    			- WiFi connected (wireless n and earlier)<br/>
-			    			- Software developers kit (node.js)<br/>
-			    			- Open source iOS app<br/>
-			    			- ChillHub refrigerator is available in Stainless, White, Black, and 
-			    			Slate (link to shopify)<br/>
-						</p>					
+					<div class="col-md-6 col-md-offset-3"">
+						<ul id="specList">
+							<li>8 USB ports in 2 different locations in the fridge</li>
+							<li>USB power: 5V, 4A, 20W (wire dependent)</li>
+							<li>WiFi connected (wireless n and earlier)</li>
+							<li>Software developers kit (node.js)</li>
+							<li>Open source iOS app</li>
+							<li>ChillHub refrigerator is available in Stainless, White, Black and Slate</li>
+						</ul>				
 					</div>
 				</div>
 			</div>

@@ -1,322 +1,496 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <title>ChillHub</title>
-    
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>ChillHub</title>
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+		<link href="assets/css/style.css" rel="stylesheet">
+        <style>
+        	
+        	/* Define font faces */
+            @font-face {
+            font-family: 'MavenProLight-200';
+            src: url("fonts/MavenProLight-200.otf");
+            }
+            @font-face {
+            font-family: 'MavenProLight-300';
+            src: url("fonts/MavenProLight-300.otf");
+            }
+            p,li {
+            font-size:1.2em;
+            font-family: 'MavenProLight-200', sans-serif;
+            }
+            h1,h2,h3,h4 {
+            font-family: 'MavenProLight-300', sans-serif;
+            }
+            .pbold {
+            font-family: 'MavenProLight-300', sans-serif;
+            }
+            
+            /* Define HEADER specifics */
+            #header {
+            background-color: white;
+            }
+            #header p {
+	            padding:0 3% 0 8%;
+            }
+        	#photoLarge {
+        		margin:20px;
+        	}
+            #footerBar img {
+            	margin:3px;
+            }
+            #footerBar img:hover {
+            	border: #1ab7ea solid 3px;
+            }
+            #buyNowButton {
+            	border:black 1px solid;
+            	text-align:center;
+            	vertical-align:middle;
+            	background-color:#1ab7ea;
+            	color:white;
+            	margin:10px;
+            }
+            #buyNowButton:hover {
+            	color:grey;
+            }
+            
+            /* Define NAVBAR specifics */
+            #navBarBanner {
+            background-color: black;
+            }
+            .navbar {
+            margin-bottom:0 !important;
+            }
+            .navbar-collapse.collapse {
+            text-align:center;
+            height:auto !important;
+            }
+            .navbar-nav {
+            text-align:center;
+            display:inline-block;
+            float:none;
+            }
+            .navbar .nav > li > a {
+            color:white;
+            }
+            .navbar .nav > li > a:hover {
+            color:grey;
+            }
+            
+            /* Define STORY specifics */
+            #story {
+            background-color:#1ab7ea;
+            }
+            #story p {
+            padding:0 13% 0 13%;
+            }
+            #storyVideo {
+            width:80%; 
+            height:300px;
+            margin-left:10%;
+            margin-right:10%;
+            }
+            
+            /* Define APPLICATIONS specifics */
+            #applications {
+            background-color:#79b705;
+            }
+            #applications img:hover {
+            border: #1ab7ea solid 3px;
+            }
+            #applications p {
+            color:white;
+            padding:0 12% 0 13%;
+            }
+            #applicationImages {
+            	margin-left:5%;
+            	margin-right:25%;
+            }
+            .products {
+            font-size:120%;
+            margin-left:10%;
+            margin-right:10%;
+            }
+            .productComment {
+            font-size:80%;
+            margin-left:10%;
+            margin-right:10%;
+            }
+            #chillHubCommunityButton {
+            position:relative;
+            margin:0 auto;
+            display:block;
+            padding:20px;
+            color:black;
+            }
+            #chillHubCommunityButton > button:hover {
+            color:grey;
+            }
+            
+            /* Define FEATURES specifics */
+            #features {
+            background-image: linear-gradient(rgba(173,217,255,0.8),rgba(173,217,255,0.8)), url("images/chillhub-duotone-background-image.png");
+            background-size: cover !important;
+            }
+            #features p,h3 {
+            padding:0 10% 0 5%;
+            }
+            .featureTitle {
+            text-align:left;
+            }
+            
+            /* Define SPECS specifics */
+            #specs {
+            background-color:white;
+            padding-bottom:3%;
+            }
+            #specs ul {
+            padding:0 10% 0 9%;
+            }
+            #specList li {
+            margin-bottom:20px;
+            }
+            
+			/* Define FOOTER specifics */
+			#footerBorder {
+				background-color:#585858;
+				height:7px;
+			}
+			#footer {
+				background-color:#363636;
+				height:300px;
+			}
+			#socialMedia img:hover {
+				opacity:0.7;
+			}
+            
+            /* Define general items */
+            .sectionTitle {
+            text-align:center;
+            }
+            .centerAlign {
+            text-align:center;
+            }
+            .rightAlign {
+            text-align:right;
+            }
+            .leftAlign {
+            text-align:left;
+            }
+        	.container {
+        		width:100%;
+        		margin:0px;
+        		padding:0px;
+        	}
 
-	<style>
+			/* Define mobile/web view controls */
+            .mobileShow {
+            	display:none;
+            }
+            .mobileHide {
+            	display:inline;
+            }
+        	@media (min-width:0px) and (max-width:991px) {
+        		.mobileShow {
+        			display:inline;
+        		}
+        		.mobileHide {
+        			display:none;
+        		}
+        	}
 
-		#story {
-			background-color:white;
-		}
-		
-		#applications {
-			background-color:#88e1f7;
-		}
-		
-		#features {
-			background-color:white;
-		}
-		
-		#specs {
-			padding-top:2%;
-			margin-bottom:0;
-			background-color:#88e1f7;
-		}
-		
-		.contentDiv {
-			height:600px;
-			margin-bottom:2%;
-		}
-		
-		.sectionTitle {
-			text-align:center;
-		}
-		
-		.featureTitle {
-			text-align:left;
-		}
-		
-		#storyDescription {
-			text-align:center;
-			margin-left:10%;
-			margin-right:10%;
-		}
-		
-		#storyVideo {
-			width:80%; 
-			height:300px;
-			margin-left:10%;
-			margin-right:10%;
-		}
-		
-		#story p {
-			text-align:center;
-		}
-		
-		#applications p {
-			text-align:left;
-		}
-				
-		#features p {
-			text-align:left;
-		}
-		
-		#specsDescription {
-			margin-left:10%;
-			margin-right:10%;
-			text-align:left;
-		}
-		
-		#specList {
-			line-height:50px;
-		}
-		
-		.centerAlign {
-			text-align:center;
-		}
-		
-	</style>
-
-</head>
-
-<body>
-
-	<div id="header" class="contentDiv">
-			
-		<div>
-			<img src="images/wood.jpg" style="width:50%;height:300px;float:right">
-		</div>
-			
-		<div class="row">
-
-			<div class="col-md-3 col-md-offset-2">
-				<br/>
-				<p
-					<b>The only fridge as smart as you.</b>
-				</p>
-				<br/>
-				<p>
-					Ok, well almost.<br/> A refrigerator with USB power, connectivity and 
-					seamless SDK integration. Only you can make a refrigerator as smart 
-					as you are.
-				</p>
-				<br/>
-				<button>BUY NOW ></button>
-				<br/><br/>
-				<p class="glyphicon glyphicon-download" style="font-size:80%">
-					DOWNLOAD THE CHILLHUB SDK ON GITHUB
-				</p>
-	
-			</div>
-		
-		</div>
-		
-	</div>
-
-  	<!-- <div class="navbar navbar-default navbar-fixed-top"> -->
-  	<div class="navbar navbar-default">
-  		<div class="container">
-  			<div class="navbar-header">
-  				<a href="" class="navbar-brand"></a>
-  				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-  					<span class="sr-only">Toggle navigation</span>
-  					<span class="icon-bar"></span>
-  					<span class="icon-bar"></span>
-  					<span class="icon-bar"></span>
-  				</button>
-  			</div>
-  			<div class="collapse navbar-collapse centerAlign">
-  				<ul class="nav navbar-nav">
-  					<li class="active"><a href="#story">> What is ChillHub?</a></li>
-  					<li><a href="#applications">> What does it do?</a></li>
-  					<li><a href="#features">> Features</a></li>
-  					<li><a href="#specs">> Detailed specs</a></li>
-  				</ul>
-  			</div>
-  		</div>
-  	</div>
-  	
-  	<div>
-	
-		<div id="story" class="contentDiv">
-		
-			<div class="row">
-				<h1 class="sectionTitle">WHAT IS CHILLHUB?</h1>
-			
-				<div class="col-md-6 col-md-offset-3">
-					<p>
-						When the <b>FirstBuild</b> community started in May 2014, community 
-						members were submitting ideas for new applications for refrigerators. 
-						The missing links were power and internet connectivity. <b>Brian Wagner</b> 
-						designed the first USB connected hub that provided blah blah blah.
-						Text FPO!
-					</p>
-				</div>
-						
-				<br/>
-			
-				<div class="row">
-					<div class="col-md-3 col-md-offset-3">
-						<iframe id="storyVideo" src="//www.youtube.com/embed/OWsyrnOBsJs" frameborder="0" allowfullscreen></iframe>	
-					</div>
-					<div class="col-md-3">
-						<p>Brian Wagner Image</p>
-					</div>
-				</div>
-				
-				<br/><br/>
-				
-				<div class="row">
-					<div class="col-md-6 col-md-offset-3">
-						<p class="centerAlign">
-							CHECK OUT THE CHILLHUB COMMUNITY >
-						</p>
-					</div>
-				</div>
-				
-			</div>
-		</div>
-		
-		<div id="applications" class="contentDiv">
-			<div class="row">
-				<h1 class="sectionTitle">WHAT DOES IT DO?</h1>
-			
-				<div class="row">
-
-					<div class="col-md-6 col-md-offset-3">
-
-			    		<p>
-							ChillHub is a refrigerator with two seamlessly integrated USB hubs. 
-							This first of its kind platform enables development of new hardware 
-							products that benefit from operating inside a cooled space. From niche 
-							to mass-market, ChillHub will allow the <b>developer community</b> to create 
-							new uses for refrigerators.
-						</p>
-				
-					</div>
-				
-				</div>
-				
-			<div class="row">				
-				<h2 class="sectionTitle">SEE IT IN ACTION</h2>				
-				
-				<br/>
-					
-				<div class="col-md-2 col-md-offset-3">
-				    <p style="font-size:120%;margin-left:10%;margin-right:10%;">
-				    	MIKLY WEIGH
-				    </p>
-			    </div>
-			    
-			    <div class="col-md-2">
-				    <p style="font-size:120%;margin-left:10%;margin-right:10%;">
-			    		BEER MINDER
-			    	</p>
-			    </div>
-			    
-			    <div class="col-md-2">
-				    <p style="font-size:120%;margin-left:10%;margin-right:10%;">
-				    	QUICK CHILL
-				    </p>
-			    </div>
-			    
-			    <br/><br/><br/>
-			    
-			    <div class="col-md-6 col-md-offset-3">
-				    <p>
-				    	Check out the ChillHub Community
-				    </p>
-			    </div>
-			</div>
-			</div>
-	 	</div>
-		
-		<div id="features" class="contentDiv">
-			<div class="row">
-	 			<h1 class="sectionTitle">FEATURES</h1>
-			
-				<div class="row">
-
-					<div class="col-md-6 col-md-offset-3">
-						<h3 class="featureTitle">INTEGRATED</h3>
-			    		<p>
-				    		Provides seamless integration with the refrigerator. Allows access to 
-				    		sensor data and control of refrigerator components.
-				    	</p>
-				    </div>
-			    
-					<div class="col-md-6 col-md-offset-3">
-				    	<h3 class="featureTitle">POWERFUL</h3>
-					    <p>
-					    	Build-in USB power and WiFi connectivity provide common elements 
-					    	required for nearly any application.
-				    	</p>
-				    </div>
-			    
-					<div class="col-md-6 col-md-offset-3">
-				    	<h3 class="featureTitle">OPEN</h3>
-					    <p>
-					    	The development platform is open, allowing FirstBuild community 
-					    	members to share and improve upon applications.
-				    	</p>
-				    </div>
-			    
-					<div class="col-md-6 col-md-offset-3">
-					    <h3 class="featureTitle">MOBILE</h3>
-					    <p>
-				    		The open-source, iOS-compatible app connects you to ChillHub anywhere.
-				    	</p>
-			    	</div>
-			    
-				</div>
-			    		    
-			</div>
-			
-		</div>
-		
-		<div id="specs" class="contentDiv">
-			<div class="row">
-				<h1 class="sectionTitle">DETAILED SPECS</h1>
-				
-				<br/>
-				
-				<div class="row">
-					<div class="col-md-6 col-md-offset-3"">
-						<ul id="specList">
-							<li>8 USB ports in 2 different locations in the fridge</li>
-							<li>USB power: 5V, 4A, 20W (wire dependent)</li>
-							<li>WiFi connected (wireless n and earlier)</li>
-							<li>Software developers kit (node.js)</li>
-							<li>Open source iOS app</li>
-							<li>ChillHub refrigerator is available in Stainless, White, Black and Slate</li>
-						</ul>				
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	<div id="footer">
-		<div>
-			<img src="images/wood.jpg" style="width:50%;height:300px;float:left">
-		 	<img src="images/wood.jpg" style="width:50%;height:300px;">
-		</div>
-	</div>
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
-    </script>
-    
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js">
-    </script>
-
-</body>
+        </style>
+        
+    </head>
+    <body>
+        <div class="container container-fluid">        	
+            <div id="header">
+                <div class="row mobileShow">
+                    <div class="col-md-5 col-md-offset-2 centerAlign">
+                        <img src="images/Chill_Hub_Logo.png" style="width:90%;margin: 5% 20px 5% 20px">
+                    </div>
+                </div>
+                <!-- -->
+                <div class="row">
+                    <!-- Images Selections -->
+                    <div class="col-md-5 col-md-push-6">
+                        <br/><br/>
+                        <div id="photoGallery" style="margin-top:-0%">
+                            <div class="row">
+                                <div class="col-md-8 centerAlign" style="margin-top:-12%">
+                                	<br/><br/><br/>
+                                    <img id="photoLarge" src="images/views/view1.png" width="90%"/>
+                                </div>
+                                <div class="col-md-4 col-md-pull-1 centerAlign">
+                                    <div id="footerBar">
+                                    	<br/>
+                                    	<p style="margin-left:-7%">MORE VIEWS</p>
+                                        <a href="images/views/view1.png" title="View 1"><img src="images/views/view1.png" class="gallery" width="70" height="55" alt="view1"/></a>
+                                        <a href="images/views/view2.png" title="View 2"><img src="images/views/view2.png" class="gallery" width="70" height="55" alt="view2"/></a>
+                                        <a href="images/views/view3.png" title="View 3"><img src="images/views/view3.png" class="gallery" width="70" height="55" alt="view3"/></a>
+                                        <a href="images/views/view4.png" title="View 4"><img src="images/views/view4.png" class="gallery" width="70" height="55" alt="view4"/></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Intro Text -->
+                    <div class="col-md-6 col-md-pull-4">
+                    
+                        <div class="row mobileHide">
+                    		<div class="col-md-12">
+                        		<img src="images/Chill_Hub_Logo.png" style="width:80%;margin:5% 20px -10px 20px;">
+                    		</div>
+                		</div>
+                		<br/>
+                        <div class="row">
+                            <div class="col-md-11">
+                                <p><b style="font-size:1.2em" class="pbold">The only fridge as smart as you.</b>
+                                <b style="font-size:0.9em">
+                                	<br/>Chill Hub is a smart refrigerator with USB power, a WiFi mobile app
+                                	and seamless SDK integration. You can create USB devices that extend
+                                	the function of your fridge.
+                                </b>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-5 col-md-offset-1">	
+                                <p id="buyNowButton" class="pbold" style="padding:10px;font-size:1.4em">BUY NOW ></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <a href="https://github.com/FirstBuild/Chillhub" target="_blank">
+                                    <p class="glyphicon glyphicon-download"></p>
+                                    <p style="font-size:1em;padding-bottom:8px;margin-left:-11%;margin-bottom:-50px;font-color:#1ab7ea;display:inline;" class="pbold">
+                                        DOWNLOAD CHILLHUB SDK ON GITHUB
+                                    </p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="navbar navbar-default" id="navBarBanner">
+                <div class="navbar-header">
+                    <a href="" class="navbar-brand"></a>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li style="color:white"><a href="#story">> What is ChillHub?</a></li>
+                        <li><a href="#applications">> What does it do?</a></li>
+                        <li><a href="#features">> Features</a></li>
+                        <li><a href="#specs">> Detailed specs</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="story">
+                <div class="row">
+	                <h1 class="sectionTitle">WHAT IS CHILLHUB?</h1>
+                    <div class="col-md-12 col-md-offset-0">
+                        <p>
+                        	When the FirstBuild community started in May 2014, community 
+                        	members were submitting ideas for new refrigerator peripheral
+                        	devices. The missing links were power and internet connectivity. 
+                        	Community members Brian Wagner and Nicolas Greni&#232 designed
+                        	the first-ever internet connected USB ports in a refrigerator. Chill Hub 
+                        	opened up the refrigerator to the development of internal devices 
+                        	that connect effortlessly to the "FirstBuild" iOS app.
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5 col-md-offset-1">
+                        <iframe id="storyVideo" src="//www.youtube.com/embed/OWsyrnOBsJs" frameborder="0" allowfullscreen></iframe>	
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                    		<div class="col-xs-5 col-xs-offset-1">
+                	        	<p style="color:white"><b class="pbold">Brian Wagner</b><br/>Engineer</p>
+            	        	</div>
+        	            	<div class="col-xs-6">
+    	                    	<p style="color:white"><b class="pbold">Nicolas Greni&#232</b><br/>Computer Engineer</p>
+	                    	</div>
+                    	</div>
+                    </div>
+                </div>
+            </div>
+            <div id="applications" style="color:white">
+                <div class="row">
+                    <h1 class="sectionTitle">WHAT DOES IT DO?</h1>
+                    <div class="row">
+                        <div class="col-md-12 col-md-offset-0">
+                            <p>
+                                Chill Hub is a refrigerator with two seamlessly integrated USB hubs. 
+                                This first-of-its-kind platform enables development of new hardware products 
+                                that benefit from operating inside a cooled space. From niche 
+                                to mass market, Chill Hub will allow the developer 
+                                community to create new devices that could benefit all refrigerator users.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <h2 class="sectionTitle">SEE IT IN ACTION</h2>
+                <div class="row">
+                <div id="applicationImages" class="col-md-10 col-md-offset-1">
+                    <br/>
+                    <div class="col-md-4">
+                        <p class="productComment leftAlign pbold" style="color:#1285a8;margin-bottom:-5px;font-size:1em">DO WE NEED MILK?</p>
+                        <p class="products pbold leftAlign" style="font-size:1.4em">
+                            MILKY WEIGH<br/>
+	                        <a href="https://firstbuild.com/evildrw/connected-milk-scale/" target="_blank">
+    	                    <img src="images/what_does_it_do/Milky-Weigh-ChillHub-FirstBuild.png" style="width:200px;height:200px">
+        	                </a>
+                        </p>
+                        <br/>
+                    </div>
+                    <div class="col-md-4 leftAlign">
+                        <p class="productComment pbold" style="color:#1285a8;margin-bottom:-5px;font-size:1em">LET'S TOAST TO THAT.</p>
+                        <p class="products pbold leftAlign" style="font-size:1.4em">
+                            BEER MINDER<br/>
+                            <a href="https://firstbuild.com/picsoung/idea-2cjg6o/" target="_blank">
+                            <img src="images/what_does_it_do/BeerMinder-ChillHub-FirstBuild.png" style="width:200px;height:200px">
+                            </a>
+                        </p>
+                        <br/>
+                    </div>
+                    <div class="col-md-4 leftAlign">
+                        <p class="productComment pbold" style="color:#1285a8;margin-bottom:-5px;font-size:1em">NEED. COLD. NOW.</p>
+                        <p class="products pbold leftAlign" style="font-size:1.4em">
+                            QUICK CHILL<br/>
+                            <a href="https://firstbuild.com/Arielle.gatlin/idea-gd4mrm/" target="_blank">
+                            <img src="images/what_does_it_do/QuickChill-ChillHub-FirstBuild.png" style="width:200px;height:200px">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                </div>
+                <div id="chillHubCommunityButton" class="centerAlign">
+                    <a href="https://firstbuild.com/bpwagner/chillhub/" target="_blank">
+                    <button style="padding:10px 20px;background-color:#bef948;border:black solid 1px">
+                    CHECK OUT THE CHILLHUB COMMUNITY >
+                    </button>
+                    </a>
+                </div>
+                <br/>
+            </div>
+            <div id="features">
+                <div class="row">
+                    <h1 class="sectionTitle">FEATURES</h1>
+                    <div class="row">
+                        <div class="col-md-11 col-md-offset-1">
+                            <h3 class="featureTitle">INTEGRATED</h3>
+                            <p>
+                                Provides seamless integration with the refrigerator. Allows access to 
+                                sensor data and control of refrigerator components.
+                            </p>
+                            <h3 class="featureTitle">POWERFUL</h3>
+                            <p>
+                                Build-in USB power and WiFi connectivity provide common elements 
+                                required for nearly any application.
+                            </p>
+                            <h3 class="featureTitle">OPEN</h3>
+                            <p>
+                                The development platform is open, allowing FirstBuild community 
+                                members to share and improve upon applications.
+                            </p>
+                            <h3 class="featureTitle">MOBILE</h3>
+                            <p>
+                                The open-source, iOS-compatible app connects you to ChillHub anywhere.
+                            </p>
+                        </div>
+                    </div>
+                    <br/>	
+                </div>
+            </div>
+            <div id="specs">
+                <div class="row">
+                    <h1 class="sectionTitle">DETAILED SPECS</h1>
+                    <br/>
+                    <div class="row">
+                        <div class="col-md-11 col-md-offset-1"">
+                            <ul id="specList">
+                                <li>8 USB ports in 2 different locations in the fridge</li>
+                                <li>USB power: 5V, 4A, 20W (wire dependent)</li>
+                                <li>WiFi connected (wireless n and earlier)</li>
+                                <li>Software developers kit (node.js)</li>
+                                <li>Open source iOS app</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h2 class="sectionTitle">ADDITIONAL FEATURES</h2>
+                    <div class="row">
+                        <div class="col-md-11 col-md-offset-1"">
+                            <ul id="specList">
+                                <li>Available in Stainless, White, Black, and Slate.</li>
+                                <li><b class="pbold">Dual icemaker</b> - An icemaker in both compartments gives you more ice whenever you need it.</li>
+                                <li><b class="pbold">Full-width electronic temperature-controlled drawer with colored LED lights</b> - 3 accurate settings deliver the optimal temperature for your favorite foods, while colored lights indicate the chosen setting.</li>
+                                <li><b class="pbold">TwinChill evaporators</b> - Separate climates in the fresh food and freezer sections help keep foods fresh.</li>
+                                <li><b class="pbold">Showcase LED lighting</b> - Positioned throughout the interior and under fresh food doors to spotlight foods inside the refrigerator and in the freezer.</li>
+                                <li><b class="pbold">Ice and water dispenser</b> - Easily fills large containers like pitchers or ice buckets with filtered water and ice.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="footerBorder">
+            </div>
+            <div id="footer">
+            	<div class="row">
+                    <div class="col-md-4 col-md-push-8 rightAlign">
+	                    <div id="socialMedia" class="centerAlign" style="margin:5% 0 0 0">
+                            <a href="https://www.facebook.com/thefirstbuild" target="_blank">
+		            	    <img src="images/footer/facebook.png"/>
+		            	    </a>
+                            <a href="https://twitter.com/firstbuild" target="_blank">
+    		        	    <img src="images/footer/twitter.png"/>
+    		        	    </a>
+                            <a href="https://plus.google.com/+Firstbuild/posts" target="_blank">
+            	    	    <img src="images/footer/google.png"/>
+            	    	    </a>
+                            <a href="https://www.youtube.com/user/thefirstbuild" target="_blank">
+        	    		    <img src="images/footer/youtube.png"/>
+        	    		    </a>
+                            <a href="http://instagram.com/thefirstbuild" target="_blank">
+            			    <img src="images/footer/instagram.png"/>
+            			    </a>
+            			</div>
+            		</div>
+                    <div class="col-md-4 col-md-pull-3"">
+	                	<div class="centerAlign" style="margin:5% 10% 0 10%">
+    	                	<img src="images/footer/firstbuild.png"/>     	
+        	        	</div>
+                	</div>
+                </div>
+            </div>
+        </div>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.min.js"></script>
+        <script>
+            $(function() {
+            $("a:has(img.gallery)").click(function() {
+            var largePath = $(this).attr("href");
+            var caption = $(this).attr("title");
+            
+            $("#photoLarge").attr({src: largePath });
+            $("#caption").text(caption);
+            return false;
+            });
+            });
+        </script>
+    </body>
 </html>
